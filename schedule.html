@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech & Innovation | Schedule</title>
+
+<!-- -----------------------------
+     CRITICAL CSS
+     ----------------------------- -->
+<style>
+  :root {
+    --color-primary: #0077ff;
+    --color-bg: #fff;
+    --color-text: #000;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --radius-sm: 8px;
+    --focus-ring: 3px solid #1a73e8;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--color-bg);
+    line-height: 1.5;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--space-xs) var(--space-sm);
+    z-index: 1000;
+    transition: top 0.3s ease;
+  }
+  .skip-link:focus { top: 10px; }
+
+  :focus { outline: var(--focus-ring); outline-offset: 4px; }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--color-primary);
+    color: var(--color-bg);
+    padding: var(--space-sm);
+  }
+
+  .site-title { margin:0; display:flex; gap:var(--space-sm); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--color-bg);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+  }
+  nav a:hover { opacity: 0.7; }
+
+  /* Hamburger menu initial state for JS-enabled */
+  .js-enabled .mobile-nav { display:block; transform:translateX(100%); }
+  .mobile-nav.open { transform:translateX(0); }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<!-- Deferred CSS -->
+<link rel="stylesheet" href="assets/css/style.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="assets/css/theme.css" media="all">
+<noscript>
+  <link rel="stylesheet" href="assets/css/style.css">
+</noscript>
+
+<script>
+  document.documentElement.classList.add("js-enabled");
+</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header tabindex="0">
+  <h1 class="site-title">Community Event</h1>
+  <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+  <button id="contrast-toggle" aria-label="Toggle high contrast">High Contrast</button>
+  <nav class="mobile-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html" accesskey="h">Home</a></li>
+      <li><a href="schedule.html" accesskey="s">Schedule</a></li>
+      <li><a href="speakers.html" accesskey="p">Speakers</a></li>
+      <li><a href="venue.html" accesskey="v">Venue</a></li>
+      <li><a href="register.html" accesskey="r">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content" tabindex="-1">
+  <h1 tabindex="0">Event Schedule</h1>
+
+  <!-- Day 1: Opening -->
+  <section class="schedule-day" tabindex="0">
+    <h2>Day 1: Opening</h2>
+
+    <article class="schedule-card" tabindex="0">
+      <h3>Opening Ceremony</h3>
+      <p><strong>9:00 AM – 10:00 AM</strong> | Welcome remarks, summit overview.</p>
+    </article>
+
+    <article class="schedule-card" tabindex="0">
+      <h3>AI Keynote: The Future of Intelligent Systems</h3>
+      <p><strong>10:15 AM – 11:30 AM</strong> | Speaker: Dr. Kamikazi Chen</p>
+    </article>
+  </section>
+
+  <!-- Day 2: Workshops -->
+  <section class="schedule-day" tabindex="0">
+    <h2>Day 2: Workshops</h2>
+    <div class="workshops-list">
+      <article class="workshop-card" tabindex="0">
+        <h3>Hands-on: Building Smart AI Agents</h3>
+        <p><strong>2:00 PM – 4:00 PM</strong> | Guide participants through creating an intelligent agent, model setup, decision-making, and natural language integration. For beginners & intermediate learners.</p>
+      </article>
+
+      <article class="workshop-card" tabindex="0">
+        <h3>Cybersecurity Live Attack Simulation</h3>
+        <p><strong>9:00 AM – 11:00 AM</strong> | Interactive demo where experts simulate attacks and defenses in a controlled environment.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer tabindex="0">
+  <p>&copy; 2025 Tech & Innovation</p>
+</footer>
+
+<!-- Module JS -->
+<script type="module" src="assets/js/main.js" defer></script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(() => console.log("Service worker registered successfully."))
+      .catch((err) => console.error("Service worker registration failed:", err));
+  });
+}
+</script>
+
+</body>
+</html>
