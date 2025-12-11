@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech & Innovation | Venue</title>
+
+<!-- -----------------------------
+     CRITICAL CSS
+     ----------------------------- -->
+<style>
+  :root {
+    --color-primary: #0077ff;
+    --color-bg: #fff;
+    --color-text: #000;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --radius-sm: 8px;
+    --focus-ring: 3px solid #1a73e8;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--color-bg);
+    line-height: 1.5;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--space-xs) var(--space-sm);
+    z-index: 1000;
+    transition: top 0.3s ease;
+  }
+  .skip-link:focus { top: 10px; }
+
+  :focus { outline: var(--focus-ring); outline-offset: 4px; }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--color-primary);
+    color: var(--color-bg);
+    padding: var(--space-sm);
+  }
+
+  .site-title { margin:0; display:flex; gap:var(--space-sm); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--color-bg);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+  }
+  nav a:hover { opacity: 0.7; }
+
+  /* Hamburger menu initial state for JS-enabled */
+  .js-enabled .mobile-nav { display:block; transform:translateX(100%); }
+  .mobile-nav.open { transform:translateX(0); }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<!-- Deferred CSS -->
+<link rel="stylesheet" href="assets/css/style.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="assets/css/theme.css" media="all">
+<noscript>
+  <link rel="stylesheet" href="assets/css/style.css">
+</noscript>
+
+<script>
+  document.documentElement.classList.add("js-enabled");
+</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header tabindex="0">
+  <h1 class="site-title">Community Event</h1>
+  <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+  <button id="contrast-toggle" aria-label="Toggle high contrast">High Contrast</button>
+  <nav class="mobile-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html" accesskey="h">Home</a></li>
+      <li><a href="schedule.html" accesskey="s">Schedule</a></li>
+      <li><a href="speakers.html" accesskey="p">Speakers</a></li>
+      <li><a href="venue.html" accesskey="v">Venue</a></li>
+      <li><a href="register.html" accesskey="r">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content" class="venue-section" tabindex="-1">
+
+  <section class="venue-info" tabindex="0">
+    <h2>Main Venue</h2>
+    <p>The summit will be held at the <strong>Tech Innovation Center</strong>, Nairobi.</p>
+    <p>The venue features a 1,200-seat auditorium and breakout rooms.</p>
+    <figure>
+      <img data-src="images/location.jpeg" alt="Conference Center exterior" 
+           style="width:100%;height:auto;display:block;border-radius:5px;margin-bottom:10px;" 
+           data-src="images/location.jpeg">
+      <figcaption>The University Innovation Conference Center in Nairobi.</figcaption>
+    </figure>
+  </section>
+
+  <section class="venue-directions" tabindex="0">
+    <h2>How to Get There</h2>
+    <ul>
+      <li>Easily accessible via major bus routes</li>
+      <li>Secure parking available on-site</li>
+      <li>Ride-sharing apps (Uber, Bolt) operate at all times</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer tabindex="0">
+  <p>&copy; 2025 Tech & Innovation.</p>
+</footer>
+
+<!-- Module JS -->
+<script type="module" src="assets/js/main.js" defer></script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(() => console.log("Service worker registered successfully."))
+      .catch((err) => console.error("Service worker registration failed:", err));
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* =======================================
+   THEME.CSS -High Contrast, and Print
+   ======================================= */
+
+
+
+/* -----------------------------
+   HIGH CONTRAST TOGGLE
+   ----------------------------- */
+body.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast header,
+body.high-contrast footer {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast nav a {
+  color: #ffff00 !important;
+}
+
+body.high-contrast .workshop-card,
+body.high-contrast .highlight-card,
+body.high-contrast .speaker-card,
+body.high-contrast .venue-info,
+body.high-contrast .venue-directions {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+
+body.high-contrast .registration-form input,
+body.high-contrast .registration-form select,
+body.high-contrast .registration-form button {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+
+/* -----------------------------
+   PRINT STYLESHEET
+   ----------------------------- */
+@media print {
+  header, nav, footer {
+    display: none !important;
+  }
+
+  main {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #000;
+  }
+
+  .workshop-card,
+  .highlight-card,
+  .speaker-card,
+  .venue-info,
+  .venue-directions {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* -----------------------------
+   REDUCED MOTION SUPPORT
+   ----------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

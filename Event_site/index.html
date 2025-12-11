@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech & Innovation | Home</title>
+
+<!-- -----------------------------
+     CRITICAL CSS
+     ----------------------------- -->
+<style>
+  :root {
+    --color-primary: #0077ff;
+    --color-bg: #fff;
+    --color-text: #000;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --radius-sm: 8px;
+    --focus-ring: 3px solid #1a73e8;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--color-bg);
+    line-height: 1.5;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--space-xs) var(--space-sm);
+    z-index: 1000;
+    transition: top 0.3s ease;
+  }
+  .skip-link:focus { top: 10px; }
+
+  :focus { outline: var(--focus-ring); outline-offset: 4px; }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--color-primary);
+    color: var(--color-bg);
+    padding: var(--space-sm);
+  }
+
+  .site-title { margin:0; display:flex; gap:var(--space-sm); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--color-bg);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+  }
+  nav a:hover { opacity: 0.7; }
+
+  /* Hamburger menu initial state for JS-enabled */
+  .js-enabled .mobile-nav { display:block; transform:translateX(100%); }
+  .mobile-nav.open { transform:translateX(0); }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+
+</style>
+
+<!-- -----------------------------
+     DEFERRED CSS
+     ----------------------------- -->
+<link rel="stylesheet" href="assets/css/style.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="assets/css/theme.css" media="all">
+<noscript>
+  <link rel="stylesheet" href="assets/css/style.css">
+</noscript>
+
+<script>
+  // Mark JS enabled
+  document.documentElement.classList.add("js-enabled");
+</script>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header tabindex="0">
+  <h1 class="site-title">Community Event</h1>
+  <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+  <button id="contrast-toggle" aria-label="Toggle high contrast">High Contrast</button>
+  <nav class="mobile-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html" accesskey="h">Home</a></li>
+      <li><a href="schedule.html" accesskey="s">Schedule</a></li>
+      <li><a href="speakers.html" accesskey="p">Speakers</a></li>
+      <li><a href="venue.html" accesskey="v">Venue</a></li>
+      <li><a href="register.html" accesskey="r">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1 id="hero-title"><strong>Welcome to the Community Event</strong></h1>
+    <p>The premier gathering of innovators, founders, engineers, designers, and technology leaders driving the future of digital transformation.</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-event">
+    <h2>About the Event</h2>
+    <p>The Tech & Innovation Summit 2025 brings together global and regional experts to explore AI, cybersecurity, IoT, robotics, cloud engineering, and digital product design.</p>
+    <p>This three-day summit includes keynote sessions, hands-on workshops, product demos, networking lounges, and startup showcases.</p>
+  </section>
+
+  <!-- Highlights Section -->
+  <section class="highlights-section">
+    <h2>Highlights</h2>
+    <ul class="highlights-list">
+      <li class="highlight-card">
+        <h3>AI and Machine Learning Workshops</h3>
+        <p>Hands-on sessions exploring real-world AI tools, model training, and emerging innovations.</p>
+      </li>
+      <li class="highlight-card">
+        <h3>Cybersecurity Live Demonstrations</h3>
+        <p>Interactive demos showcasing ethical hacking, digital threat defense, and modern security practices.</p>
+      </li>
+      <li class="highlight-card">
+        <h3>Women in Tech Leadership Panels</h3>
+        <p>Insightful discussions led by influential women driving technological change across industries.</p>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer tabindex="0">
+  <p>&copy; 2025 Tech & Innovation.</p>
+</footer>
+
+<!-- -----------------------------
+     MODULE & DEFERRED JS
+     ----------------------------- -->
+<script type="module" src="assets/js/main.js" defer></script>
+<script type="module" src="assets/js/form-validation.js" defer></script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(() => console.log("Service worker registered successfully."))
+      .catch((err) => console.error("Service worker registration failed:", err));
+  });
+}
+</script>
+
+</body>
+</html>
